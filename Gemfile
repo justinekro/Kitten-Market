@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap-sass', '3.3.7'
 gem 'devise'
 gem 'rails',        '5.1.4'
 gem 'puma',         '3.9.1'
