@@ -12,3 +12,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+# Fichiers JS à faire charger à des endroits précis et non sur tout le site (enfin je pense)
+
+Rails.application.config.assets.precompile += %w( owlcarousel.js )
+Rails.application.config.assets.precompile += %w( owlcarousel.min.js )
+
+Rails.application.config.assets.precompile += %w( jquery.min.js )
