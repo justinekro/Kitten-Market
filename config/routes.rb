@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	root 'home#index'
+	root 'items#index'
 	resources :items
   devise_for :users, controllers: { sessions: 'users/sessions' }
   get 'users/:id', to: "users#show"

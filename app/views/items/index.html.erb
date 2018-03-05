@@ -1,2 +1,56 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class='space-60'></div>
+<!--new arrivals-->
+<section class="new-arrivals">
+	<div class="container">
+	    <h2 class="section-heading">Nouveautés de la semaine</h2>
+	    <!--owl carousel-->
+	    <div class="row">
+	        <div id="owl-slider" class="col-md-12 owl-carousel owl-theme">
+	            <% @items.first(5).each do |item| %>
+	            <div class="item">
+	            	<a href="/items/<%=item.id%>">
+	                <div class="item_holder">
+	                	<a href="/items/<%=item.id%>">
+	                    <%= image_tag item.image_url, :class => "img-responsive" %></a>
+	                    <div class="title">
+	                        <h5> Photo de <%= item.title%></h5>
+	                        <span class="price"><%= item.price%> €</span>
+	                    </div>
+	                    </a>
+	                </div><!--item holder-->
+	            	
+	            </div> <!--item loop-->
+	            <%end%>
+	        </div>
+	    </div>
+	    <!--owl end-->
+	</div>
+</section>
+<!--end new arrivals-->
+<div class='space-60'></div>
+
+<!--popular products-->
+<section class="featured-products">
+	<div class="container">
+	    <h2 class="section-heading">Toutes les photos de nos chatons</h2>
+
+	 	<% @items.each do |item| %>
+        <div class="col-sm-4 ">
+            <div class="item_holder">
+            	<a href="/items/<%=item.id%>">
+                <%= image_tag item.image_url, :class => "img-responsive" %>
+                </a>
+                <div class="title">
+                    <h5><%= item.title%></h5>
+                    <p> <%= item.description%> </p>
+                    <span class="price"><%= item.price%>€</span>
+                </div>
+            </div><!--item holder-->
+        </div><!--col end-->
+		<% end %>
+	</div>
+</section>
+<!--end Popular products-->
+
+<%= javascript_include_tag "owlcarousel.js", 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag "owlcarousel.min.js", 'data-turbolinks-track' => true  %>

@@ -17,5 +17,3 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( owlcarousel.js )
 Rails.application.config.assets.precompile += %w( owlcarousel.min.js )
-
-Rails.application.config.assets.precompile += %w( jquery.min.js )
