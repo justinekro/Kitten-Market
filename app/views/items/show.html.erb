@@ -103,7 +103,7 @@
                                         <div class="media-body">
                                             <h5>Emily</h5>
                                             <p>
-                                                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+                                                Curabitur pretium tincidunt ou on peut drop des cours pas forcément en rapport avec le devlacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
                                             </p>
                                             <span class="rating">
                                                 <i class="fa fa-star"></i>
@@ -177,41 +177,53 @@
 
         		<div class="space-40"></div>
 	        		<div class="similar-products">
-	                <h2 class="section-heading">Similar Products</h2>
+	                <h2 class="section-heading">Produits similaires</h2>
 							<div class="row">
 	                        <div class="col-sm-4">
 	                            <div class="item_holder">
-	                                <a href="#"><img src="images/women/1.jpg" alt="" class="img-responsive"></a>
-	                                <div class="title">
-	                                    <h5>Sky-Blue <br>Short Skirt</h5>
-	                                    <span class="price">$29.99</span>
-	                                    <p>
-	                                        Lorem ipsum dolor sit amet, con sec tetur adipisicing elit, sed do eiusmod
-	                                    </p>
-	                                </div>
-	                            </div><!--item holder-->
-	                        </div><!--col end-->
+		                            	<a href="/items/<%=@similar_items[2].id%>">
+			                                <img src="images/women/1.jpg" alt="" class="img-responsive">
+				                              		<div class="item">
+				                                			<%= image_tag @similar_items[2].image_url, class: "img-responsive", alt: 'photo de chat' %>
+				                            			</div>
+			                                <div class="title">
+			                                    <h5> <%= @similar_items[2].title %> <br></h5>
+
+			                                    <span class="price"> <%= @similar_items[2].price %> € </span>
+			                                    <p>
+			                                      	<%= @similar_items[2].description %>
+			                                    </p>
+		                                </div>
+		                              </a>
+                              </div>
+	                         </div><!--item holder-->
+	                        <!--col end-->
 	                        <div class="col-sm-4">
-	                            <div class="item_holder out-of-stock">
-	                                <span class="out-stock-label">Out of stock</span>
-	                                <a href="#"><img src="images/men/1.jpg" alt="" class="img-responsive"></a>
-	                                <div class="title">
-	                                    <h5>Sky-Blue <br>Short Skirt</h5>
-	                                    <span class="price">$29.99</span>
-	                                    <p>
-	                                        Lorem ipsum dolor sit amet, con sec tetur adipisicing elit, sed do eiusmod
-	                                    </p>
-	                                </div>
+		                          <div class="item_holder">
+		                              <a href="#"><img src="images/men/1.jpg" alt="" class="img-responsive"></a>
+		                              		<div class="item">
+		                                			<%= image_tag @similar_items[4].image_url, class: "img-responsive", alt: 'photo de chat' %>
+		                            			</div>
+		                              <div class="title">
+		                                  <h5> <%= @similar_items[4].title %>  <br> </h5>
+		                                  <span class="price"> <%= @similar_items[4].price %> € </span>
+		                                  <p>
+		                                      <%= @similar_items[4].description %>
+		                                  </p>
+		                              </div>
 	                            </div><!--item holder-->
 	                        </div><!--col end-->
 	                        <div class="col-sm-4">
 	                            <div class="item_holder">
 	                                <a href="#"><img src="images/men/2.jpg" alt="" class="img-responsive"></a>
+		                              		<div class="item">
+		                                			<%= image_tag @similar_items[6].image_url, class: "img-responsive", alt: 'photo de chat' %>
+		                            			</div>
 	                                <div class="title">
-	                                    <h5>Sky-Blue <br>Short Skirt</h5>
-	                                    <span class="price">$29.99</span>
+	                                    <h5> <%= @similar_items[6].title %>  <br></h5>
+	                                    <span class="price"> <%= @similar_items[6].price %> € </span>
 	                                    <p>
-	                                        Lorem ipsum dolor sit amet, con sec tetur adipisicing elit, sed do eiusmod
+	                                        <%= @similar_items[6].description %>
 	                                    </p>
 	                                </div>
 	                              </div>

@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def show
   	@item = Item.find(params[:id])
+  	@similar_items = Item.select {|item| item.id != @item.id}
   end
 
   private
