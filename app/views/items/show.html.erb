@@ -1,0 +1,294 @@
+<!--breadcrumb start-->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <h1>Product Detail</h1>
+    </div>
+</div>
+<!--end breadcrumb-->
+
+<div class="space-60"></div>
+    <div class="container">
+        <div class="row single-product">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-5 margin-b-30">
+                        <div id="product-single"  class="owl-carousel owl-theme single-product-slider">
+                            <div class="item">
+                                <%= image_tag @item.image_url, class: "img-responsive", alt: 'photo de chat' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="product-detail-desc">
+                            <h3 class="title"> Une belle photo de <%= @item.title %></h3>
+                            <span class="price"> <%= @item.price %> €</span>
+                            <p>
+                                <%= @item.description %>
+                            </p>
+                            <div class="available">
+                                En stock !
+                            </div>
+                            <div class="add-buttons">
+                                <i class="fa fa-random"></i>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart" class="btn btn-skin btn-lg"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="col-md-3">
+                <div class="sidebar-widget">
+                    <h3>Categories</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Noir et blanc</a></li>
+                        <li><a href="#">Chats à poil long</a></li>
+                        <li><a href="#">Chats à poil court</a></li>
+                        <li><a href="#">Chats grognons</a></li>
+                        <li><a href="#">Chats trognons</a></li>
+
+                    </ul>
+                </div><!--sidebar-widget end-->
+            </div><!--sidebar col-->
+
+
+
+                <!--single product details end-->
+                <div class="space-40"></div>
+                <div class="row">
+                    <div class="col-md-12 item-more-info">
+                        <div>
+
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-justified" role="tablist">
+                                <li role="presentation" class="active"><a href="#desc" aria-controls="desc" role="tab" data-toggle="tab">Description</a></li>
+                                <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
+                                <li role="presentation"><a href="#add-cmnt" aria-controls="add-cmnt" role="tab" data-toggle="tab">Add Review</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="desc">
+                                    <p>
+                                        <%= @item.description %>
+                                    </p>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="reviews">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object img-circle" src="images/team-1.jpg" width="80" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Emily</h5>
+                                            <p>
+                                                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+                                            </p>
+                                            <span class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-empty"></i>
+                                            </span>
+                                        </div>
+                                    </div><!--media-->
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object img-circle" src="images/team-1.jpg" width="80" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Emily</h5>
+                                            <p>
+                                                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+                                            </p>
+                                            <span class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-empty"></i>
+                                            </span>
+                                        </div>
+                                    </div><!--media-->
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object img-circle" src="images/team-1.jpg" width="80" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Emily</h5>
+                                            <p>
+                                                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+                                            </p>
+                                            <span class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-empty"></i>
+                                            </span>
+                                        </div>
+                                    </div><!--media-->
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="add-cmnt">
+                                    <form role="form" method="post" action="#">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputFirstName" class="control-label">First Name:<span class="text-error">*</span></label>
+                                                    <div>
+                                                        <input type="text" class="form-control" id="inputFirstName">
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputCompany" class="control-label">Company:</label>
+                                                    <div>
+                                                        <input type="text" class="form-control" id="inputCompany">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="review" class="control-label">Add Review:*</label>
+                                                    <textarea class="form-control" id="review">    </textarea>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <input type="submit" class="btn-skin btn btn-lg" value="Add Review">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+    <!--A changer quand on attaquera les catégories !-->
+
+        
+        <div class="space-60"></div>
+        <div class="similar-products">
+            <h2 class="section-heading">Similar Products</h2>
+            <!--owl carousel-->
+            <div class="row">
+                <div id="owl-slider" class="col-md-12 owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="item_holder">
+                            <a href="#"><img src="images/women/1.jpg" alt="" class="img-responsive"></a>
+                            <div class="title">
+                                <h5>Sky-Blue <br>Short Skirt</h5>
+                                <span class="price">$29.99</span>
+                            </div>
+                        </div><!--item holder-->
+                    </div> <!--item loop-->
+                    <div class="item">
+                        <div class="item_holder">
+                            <a href="#"><img src="images/men/1.jpg" alt="" class="img-responsive"></a>
+                            <div class="title">
+                                <h5>Dark-Blue <br>Men's t-shirt</h5>
+                                <span class="price">$19.99 <del>$25.99</del></span>
+                            </div>
+                        </div><!--item holder-->
+                    </div> <!--item loop-->
+                    <div class="item">
+                        <div class="item_holder">
+                            <a href="#"><img src="images/women/2.jpg" alt="" class="img-responsive"></a>
+                            <div class="title">
+                                <h5>Black <br>Short Skirt</h5>
+                                <span class="price">$29.99</span>
+                            </div>
+                        </div><!--item holder-->
+                    </div> <!--item loop-->
+                    <div class="item">
+                        <div class="item_holder">
+                            <a href="#"><img src="images/men/3.jpg" alt="" class="img-responsive"></a>
+                            <div class="title">
+                                <h5>Black <br>analog watch</h5>
+                                <span class="price">$45.99</span>
+                            </div>
+                        </div><!--item holder-->
+                    </div> <!--item loop-->
+                    <div class="item">
+                        <div class="item_holder">
+                            <a href="#"><img src="images/men/4.jpg" alt="" class="img-responsive"></a>
+                            <div class="title">
+                                <h5>Black & blue <br>Backpack</h5>
+                                <span class="price">$45.99</span>
+                            </div>
+                        </div><!--item holder-->
+                    </div> <!--item loop-->
+                    <div class="item">
+                        <div class="item_holder">
+                            <a href="#"><img src="images/men/5.jpg" alt="" class="img-responsive"></a>
+                            <div class="title">
+                                <h5>Black & blue <br>Laptop bag</h5>
+                                <span class="price">$45.99</span>
+                            </div>
+                        </div><!--item holder-->
+                    </div> <!--item loop-->
+                </div>
+            </div>
+            <!--owl end-->
+        </div><!--similar products-->
+
+    </div>
+    <div class="space-60"></div>
+    <div class="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Subscribe to newsletter</h3>
+                    <p>Lorem ipsum get latest update of products sit amet.</p>
+                </div>
+                <div class="col-md-7">
+                    <form role="form" method="post" action="#" class="subscribe-form  assan-newsletter">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="email" placeholder="Enter email to subscribe">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <div>
+                                    <button class="newsletter-btn" name="submit" type="submit">Notify me</button>
+                                </div>  
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!--footer end-->
+    <!--js plugins-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>  
+    <script src="js/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="js/jquery.easing.1.3.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>       
+    <script src="js/jquery.sticky.js" type="text/javascript"></script>
+    <script src="js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="custom-scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+    <script src="bower_components/flexslider/jquery.flexslider-min.js"></script>
+    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="js/tweetie.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="bower_components/lightbox2/dist/js/lightbox.min.js" type="text/javascript"></script>
+
