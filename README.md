@@ -1,6 +1,6 @@
 # Avant toute chose...
 
-1. On crée sa branche
+## On crée sa branche
 
 * git checkout -b « ma-branche » 
 
@@ -12,15 +12,18 @@ Une fois qu'on est content :
 
 * `git commit -m « nouvelle modif sur ma-branche »`
 
-2. On merge avec sa branche, mais avant...
+## On merge avec sa branche, mais avant...
 
 * On check avec les autres qu’ils n’ont pas fait des modifs sur master 
+
+* `git checkout master`
 
 * `git pull origin master` (on met à jour son master  avec la dernière version)
 
 * `git merge ma-branche` (on fusionne les deux branches)
 
 * `git push origin master` (on pousse sur master)
+
 
 A ce moment, un message chelou s’affiche, keskonfé ???
 
@@ -34,7 +37,9 @@ A ce moment, un message chelou s’affiche, keskonfé ???
 
 * Appuyer sur enter
 
-3. Tout le monde fait un pull origin master pour être à jour
+* `branch -d ma-branche` On supprime sa branche, c'est plus clean :)
+
+## Tout le monde fait un pull origin master pour être à jour
 
 # Suivi du projet
 
