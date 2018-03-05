@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'items/index'
+
+  get 'items/new'
+
+  get 'items/create'
+
+  get 'items/edit'
+
+  get 'items/destroy'
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root 'home#index'
   get 'users/:id', to: "users/registrations#show"
