@@ -1,0 +1,98 @@
+<!--breadcrumb start-->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <h1><%= current_user.firstname%>, voici votre panier</h1>
+    </div>
+</div>
+<!--end breadcrumb-->
+
+<!-- Cart show view from template start -->
+
+<div class="space-60"></div>
+<div class="container">
+    <div class="table-responsive">
+        <!-- Cart overview start-->
+        <table class="table table-condensed cart-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Maybe won't be @items, as we don't want all items-->
+                <% current_user.cart.items.each do |item| %>
+                <tr>
+                    <td class="product-image">
+                        <%= image_tag item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
+                    </td>
+                    <!-- title should be a link to "item show", give it a try-->
+                    <td class='product-name'><a href="/items/<%=item.id%>"><%= item.title %></a></td>
+                    <td class="product-price"><%= item.price %>€</td>
+                    <td class="product-quantity">
+                        <input type="number" value="1" min="1" class="fl qty-text" name="quantity">
+                    </td>
+                    <!-- Changes according to the quantity of the product. Need to be edited-->
+                    <td class="product-total">
+                        $299.00
+                    </td>
+                    <td class='product-delete'><a href='http://example.com' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i></a></td>
+                </tr>
+                <% end %>
+                
+
+            </tbody>
+        </table><!--cart overview end -->             
+    </div>
+    <div class="space-20"></div>
+    <div class="coupon-row">
+        <div class="row">
+            <div class="col-sm-4">
+                <form class="coupon-form">
+                    <input type="text" class="form-control" placeholder="Coupon code">
+                    <button type="button">Apply</button>
+                </form>
+            </div>   
+            <div class="col-sm-3 col-sm-offset-5 text-right">
+                <a href="http://example.com" class="btn btn-light-dark">Update Cart</a>
+            </div>
+        </div>
+    </div><!--cart row-->
+    <div class="space-30"></div>
+    <div class="cart-total">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-8">
+                <h2>Cart total</h2>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td><%= @total %>€</td>
+                        </tr>
+                         <tr>
+                            <td>Shipping</td>
+                            <td>Free Shipping <a href="http://example.com" class="shipping-calculate">Calculate Shipping</a></td>
+                        </tr>
+                         <tr>
+                            <td>Total</td>
+                            <td class="total"><%= @total %>€</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"> <a href="http://example.com" class="btn btn-lg btn-skin">Proceed to checkout</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
