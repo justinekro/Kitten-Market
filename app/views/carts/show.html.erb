@@ -7,7 +7,13 @@
 <!--end breadcrumb-->
 
 <!-- Cart show view from template start -->
+<% if current_user.cart.items.size == 0 %>
+<div class="container"
+    <p> Votre panier est vide ! </p>
+    <%= link_to 'Retour aux photos de chatons', root_path %>
+</div>
 
+<% else %>
 <div class="space-60"></div>
 <div class="container">
     <div class="table-responsive">
@@ -25,6 +31,8 @@
             </thead>
             <tbody>
                 <!-- Maybe won't be @items, as we don't want all items-->
+
+                
                 <% current_user.cart.items.each do |item| %>
                 <tr>
                     <td class="product-image">
@@ -40,7 +48,7 @@
                     <td class="product-total">
                         $299.00
                     </td>
-                    <td class='product-delete'><a href='http://example.com' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i></a></td>
+                    <td class='product-delete'><a href='remove/<%=item.id%>' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i>   Retirer du panier</a></td>
                 </tr>
                 <% end %>
                 
@@ -96,3 +104,4 @@
         </div>
     </div>
 </div>
+<% end %>
