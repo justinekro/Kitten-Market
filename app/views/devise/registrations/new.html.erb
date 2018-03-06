@@ -15,82 +15,39 @@
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                     <%= devise_error_messages! %>
                     <h3 class="text-left">Créez votre compte</h3>
-                    <fieldset>          
-                            <div class="field input                     ">
-                                <br />
-                                <%= f.text_field :email, autofocus: true, placeholder: "Prénom", autocomplete: "Firstname" %>
+                    <fieldset>
+                            <div class="field input">
+                                <%= f.label :"Prénom :" %>
+                                <%= f.text_field :firstname, autofocus: true, placeholder: "Prénom", autocomplete: "firstname" %>
                             </div>
 
                             <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-envelope-o"></i>
-                                <br />
+                                <%= f.label :"Nom :" %>
                                 <%= f.text_field :name, autofocus: true, placeholder: "Nom",autocomplete: "name" %>
                             </div>
 
                             <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
-                                <%= f.date_field :birthdate, autofocus: true, placeholder: "Date de naissance", autocomplete: "birthdate" %>
-                            </div>
-
-                            <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
-                                <%= f.text_field :address, autofocus: true, placeholder: "Adresse", autocomplete: "address" %>
-                            </div>
-
-                            <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
-                                <%= f.text_field :postal_code, autofocus: true, placeholder: "Code postal", autocomplete: "postal code" %>
-                            </div>
-
-                            <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
-                                <%= f.text_field :city, autofocus: true, placeholder: "Ville", autocomplete: "city" %>
-                            </div>
-
-                            <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
-                                <%= f.text_field :country, autofocus: true, placeholder: "Pays", autocomplete: "country" %>
-                            </div>
-
-                            <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
+                                <%= f.label :"Email :" %>
                                 <%= f.text_field :email, autofocus: true, placeholder: "Email", autocomplete: "email" %>
                             </div>
-
+                            <br><br>
                             <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
-                                <% if @minimum_password_length %>
-                                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                                <% end %><br />
+                                <%= f.label :"Mot de passe :" %>
                                 <%= f.password_field :password, placeholder: "Mot de passe", :id => 'password', autocomplete: "off" %>
+                                <br /><% if @minimum_password_length %>
+                                <em>(<%= @minimum_password_length %> caractères minimum)</em>
+                                <% end %>
                             </div>
 
                             <div class="field input">
-                                <!-- Icone à changer -->
-                                <i class="icon-append fa fa-lock"></i>
-                                <br />
+                                <%= f.label :"Confirmer le mot de passe :" %>
                                 <%= f.password_field :password_confirmation,placeholder: "Confirmation", autocomplete: "off" %>
                             </div>
                     </fieldset>
-                    
+
                     <%= f.submit "Je m'inscris", class: "actions btn btn-skin btn-lg", style: "margin-top: 20px;" %>
-                    
-                    <% end %>  
+
+                    <% end %>
                 <!--form end-->
             </div>
         </div><!--col end-->

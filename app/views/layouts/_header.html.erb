@@ -55,9 +55,10 @@
 
                                             <ul class="nav nav-classic">
                                                 <% if user_signed_in? %>
-                                                          <li>Bonjour <%= current_user.name %>
+                                                          <li style="padding: 10px 15px;">Bonjour <%= current_user.firstname %>
                                                           </li>
-                                                          <li><%= link_to "Modifier mon compte", edit_user_registration_path %>
+                                                          <hr>
+                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-user dropdown-item') + "Modifier mon compte", edit_user_registration_path %>
                                                           </li>
                                                           <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt') + " Se déconnecter ", destroy_user_session_path, method: :delete  %>
                                                           </li>
@@ -108,8 +109,8 @@
                             </div><!--cart-items-->
 
                             <div class="cart-footer">
-                                <a href="#" class="btn btn-light-dark"> View Cart</a>
-                                <a href="#" class="btn btn-skin"> Checkout</a>
+                                <a href="#" class="btn btn-light-dark"> Voir le panier</a>
+                                <a href="#" class="btn btn-skin"> Passer la commande</a>
                             </div><!--footer of cart-->
 
 

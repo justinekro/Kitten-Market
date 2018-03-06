@@ -15,21 +15,19 @@
                     <h3 class="text-left">Connectez-vous</h3>
                     <fieldset>
                         <section>
-                            <div class="col col-8 field input">
-                                <br />
-                                <i class="icon-append fa fa-user"></i>
-                                <%= f.email_field :email, autofocus: true, placeholder: "Mail", autocomplete: "email" %>
+                            <div class="field input">
+                                <%= f.label :"Email :" %>
+                                <%= f.text_field :email, autofocus: true, placeholder: "Email", autocomplete: "email" %>
                             </div>
                         </section>
 
                         <section>
-                            <div class="col col-8 field input">
-                                <br />
-                                <i class="icon-append fa fa-user"></i>
+                            <div class="field input">
+                                <%= f.label :"Mot de passe :" %>
                                 <%= f.password_field :password, placeholder: "Mot de passe", autocomplete: "off" %>
                             </div>
                         </section>
-
+                        <br>
                         <% if devise_mapping.rememberable? -%>
                             <div class="field">
                                 <%= f.check_box :remember_me %>
@@ -61,4 +59,3 @@
         </div>
     <div class="space-60"></div>
 </div>
-
