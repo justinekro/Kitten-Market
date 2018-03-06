@@ -1,4 +1,6 @@
-.field {
+/* ---------- Design formulaire inscription ----------*/
+
+.sky-form-login label {
 	width: 200px;
 }
 
@@ -18,10 +20,14 @@
 	}
 	.dropdown-menu{
 		top: 65px;
-		.nav-classic li a { /* Nav-classic utilisé pour les sous-menus faits avec rails pour les mettre en style */
+		.nav-classic li { /* Nav-classic utilisé pour les sous-menus faits avec rails pour les mettre en style */
 			color: #333;
 			font-size: 13px;
+			a {
+			padding: none;
+			color: #333;
 			svg {margin-right: 5px;} /* Pour éviter que l'icone soit colléé au texte */
+			}
 		}
 	}
 }
@@ -30,6 +36,7 @@
 		display: block;
 		opacity: 1;
 		transition: 1s;
+		min-width: 220px;
 	}
 }
 
@@ -57,3 +64,5 @@
     display: inline-block;
     flex-direction: row;
 }
+
+/* ------FIN ---- Design barre menu header ----------*/
