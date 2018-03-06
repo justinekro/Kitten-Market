@@ -1,3 +1,59 @@
 .field {
 	width: 200px;
 }
+
+/* ---------- Design barre menu header ----------*/
+
+.navbar_kitten{
+	padding-bottom: 0 !important;
+}
+
+.kitten_menuprincipal {
+	float:right;
+}
+
+.kitten_menuprincipal .dropdown {
+	.kitten_lienpremierniveau {
+		padding-bottom: 30px;
+	}
+	.dropdown-menu{
+		top: 65px;
+		.nav-classic li a { /* Nav-classic utilisé pour les sous-menus faits avec rails pour les mettre en style */
+			color: #333;
+			font-size: 13px;
+			svg {margin-right: 5px;} /* Pour éviter que l'icone soit colléé au texte */
+		}
+	}
+}
+.kitten_menuprincipal .dropdown:hover{
+	.dropdown-menu{
+		display: block;
+		opacity: 1;
+		transition: 1s;
+	}
+}
+
+/* Panier du header */
+
+.shopping-cart{
+
+	align-items: end;
+	right: 0;
+	left: auto !important;
+}
+
+.cart-header {
+    padding: 15px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.cart-item .description {
+    padding-left: 10px;
+		padding-right: 100px;
+}
+
+.cart-item .buttons {
+    display: inline-block;
+    flex-direction: row;
+}
