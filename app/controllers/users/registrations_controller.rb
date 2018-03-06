@@ -8,7 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.find(params[:id])
   end
 
-
+  #def new 
+  #  @user = User.new
+  #  @cart = Cart.new
+  #  @user.cart = @cart
+  #end
 
 
   # GET /resource/sign_up

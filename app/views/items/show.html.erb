@@ -1,7 +1,7 @@
 <!--breadcrumb start-->
 <div class="breadcrumb-wrapper">
     <div class="container">
-        <h1>Détails du produit</h1>
+        <h1>Détails du produit <%= current_user.firstname%></h1>
     </div>
 </div>
 <!--end breadcrumb-->
@@ -24,7 +24,7 @@
                         <div class="available">En stock</div>
                         <div class="add-buttons">
                             <i class="fa fa-random"></i>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart" class="btn btn-skin btn-lg"><i class="fa fa-shopping-cart"></i> Ajouter au panier</a>
+                            <a href="/items/add/<%=@item.id%>" data-toggle="tooltip" data-placement="top" title="Add to cart" class="btn btn-skin btn-lg"><i class="fa fa-shopping-cart"></i> Ajouter au panier</a>
                         </div>
                     </div>
                 </div>
