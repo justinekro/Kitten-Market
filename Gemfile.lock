@@ -42,6 +42,14 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (8.1.0)
       execjs
+    aws-sdk (2.11.9)
+      aws-sdk-resources (= 2.11.9)
+    aws-sdk-core (2.11.9)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.11.9)
+      aws-sdk-core (= 2.11.9)
+    aws-sigv4 (1.0.2)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -71,6 +79,10 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.7.0)
     execjs (2.7.0)
     faraday (0.14.0)
@@ -99,6 +111,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jmespath (1.3.1)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -267,10 +280,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 2.3)
   bootstrap-sass (= 3.3.7)
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
   devise
+  dotenv-rails
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (= 2.7.0)
