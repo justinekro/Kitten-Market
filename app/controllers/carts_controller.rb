@@ -9,13 +9,18 @@ class CartsController < ApplicationController
   end
 
   def add_to_cart
-    if current_user.cart
-      current_user.cart.items << Item.find(params[:id])
-    else
-      Cart.create(user: current_user)
-      current_user.cart.items << Item.find(params[:id])
+    if user_signed_in?
+      if current_user.cart
+        current_user.cart.items << Item.find(params[:id])
+      else
+        Cart.create(user: current_user)
+        current_user.cart.items << Item.find(params[:id])
+      end
+      redirect_to cart_path(current_user.cart)
+    else 
+      flash[:error] = "Merci de vous authentifier pour accéder à votre panier"
+      redirect_to new_user_session_path
     end
-    redirect_to cart_path(current_user.cart)
   end
 
   def remove_from_cart
