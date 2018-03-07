@@ -25,3 +25,6 @@
 themeperso2
 
 .DS_Store
+
+#Ignore dotenv
+.env
