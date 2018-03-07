@@ -33,7 +33,7 @@
                 <!-- Maybe won't be @items, as we don't want all items-->
 
 
-                <% current_user.cart.items.each do |item| %>
+                <% current_user.cart.items.uniq.each do |item| %>
                 <tr>
                     <td class="product-image">
                         <%= image_tag item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
@@ -42,11 +42,16 @@
                     <td class='product-name'><a href="/items/<%=item.id%>"><%= item.title %></a></td>
                     <td class="product-price"><%= item.price %>€</td>
                     <td class="product-quantity">
-                        <input type="number" value="1" min="1" class="fl qty-text" name="quantity">
+                        <%= item.quantity %>
+                        <%= link_to image_tag('plus.png', width:"20px", style:"margin-left:10px;"), add_to_cart_path(item) %>
+                        <%= link_to (image_tag 'minus.png', width: "20px"), remove_from_cart_path(item) %>
+                    </td>
+                    <td class="product-quantity">
+                        
                     </td>
                     <!-- Changes according to the quantity of the product. Need to be edited-->
                     <td class="product-total">
-                        $299.00
+                        <%= item.price * item.quantity %>
                     </td>
                     <td class='product-delete'><a href='remove/<%=item.id%>' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i>   Retirer du panier</a></td>
                 </tr>
