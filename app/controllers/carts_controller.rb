@@ -15,7 +15,7 @@ class CartsController < ApplicationController
       if current_user.cart
         #current_user.cart.items << Item.find(params[:id])
           unless current_user.cart.items.include?(item)
-            current_user.cart.items << item  
+            current_user.cart.items << item
           end
       else
         Cart.create(user: current_user)

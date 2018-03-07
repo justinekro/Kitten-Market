@@ -43,6 +43,11 @@
                     <td class="product-price"><%= item.price %>€</td>
                     <td class="product-quantity">
                         <%= item.quantity %>
+                        <%= link_to image_tag('plus.png', width:"20px", style:"margin-left:10px;"), add_to_cart_path(item) %>
+                        <%= link_to (image_tag 'minus.png', width: "20px"), remove_from_cart_path(item) %>
+                    </td>
+                    <td class="product-quantity">
+                        
                     </td>
                     <!-- Changes according to the quantity of the product. Need to be edited-->
                     <td class="product-total">
