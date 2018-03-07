@@ -78,24 +78,26 @@
                     </li>
                     <% if user_signed_in? && current_user.cart %>
                     <li class="dropdown yamm-fw"><!-- Partie sur le PAnier -->
-                        <a href="carts/<%=current_user.cart.id%>" class="kitten_lienpremierniveau" data-toggle="dropdown" role="button" aria-haspopup="true">Mon panier <i style="font-size: 17px;" class="fas fa-shopping-cart"></i> <span class="badge"><%=current_user.cart.items.count%></span></a>
+                        <%= link_to 'Mon panier', cart_path(current_user.cart.id), class: "kitten_lienpremierniveau", data: {toggle:"dropdown", role:"button"} %>
+                        <i style="font-size: 17px;" class="fas fa-shopping-cart"></i> <span class="badge"><%= total_quantity %></span></a>
                         <div class="dropdown-menu shopping-cart">
 
                             <div class="cart-header">
-                                Votre panier contient <%=current_user.cart.items.count%> elements :
+                                Votre panier contient <%= total_quantity %> elements :
                             </div><!--end of cart-header-->
 
                             <div class="cart-items content-scroll">
-                                <% current_user.cart.items.each do |item| %>
+                                <% current_user.cart.items.uniq.each do |item| %>
                                 <div class="cart-item clearfix">
                                     <div class="description">
                                         <%= link_to item.title, item_path(item)%>
-                                        <strong class="price"><%=item.price/100%></strong>
+                                        <strong class="price"><%=item.price/100%>€. Quantité : <%=item.quantity%></strong>
                                     </div><!--Description-->
+
                                     <div class="buttons">
                                         <!--  MODIFIER LE PATH Pour mettre le chemin vers l'edition de l'objet du panier et suppression de l'objet du panier -->
                                         <%= link_to content_tag(:i, nil, class: 'fas fa-edit'), root_path %>
-                                        <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), root_path %>
+                                        <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), remove_from_cart_path(item.id) %>
                                     </div>
                                 </div><!--cart item-->
                                 <% end %>

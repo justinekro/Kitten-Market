@@ -2,6 +2,7 @@ class Item < ApplicationRecord
 		has_and_belongs_to_many :carts
 		has_and_belongs_to_many :orders
 	  #validates :title, :description, :price, :image_url, presence: true
+    
 
 		# This method associates the attribute "item_image" with a file attachment
 	  has_attached_file :item_image, styles: {

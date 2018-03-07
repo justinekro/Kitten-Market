@@ -40,7 +40,7 @@
                     </td>
                     <!-- title should be a link to "item show", give it a try-->
                     <td class='product-name'><a href="/items/<%=item.id%>"><%= item.title %></a></td>
-                    <td class="product-price"><%= item.price %>€</td>
+                    <td class="product-price"><%= item.price / 100 %>€</td>
                     <td class="product-quantity">
                         <%= item.quantity %>
                         <%= link_to image_tag('plus.png', width:"20px", style:"margin-left:10px;"), add_to_cart_path(item) %>
@@ -51,7 +51,7 @@
                     </td>
                     <!-- Changes according to the quantity of the product. Need to be edited-->
                     <td class="product-total">
-                        <%= item.price * item.quantity %>
+                        <%= (item.price/100) * item.quantity %>€
                     </td>
                     <td class='product-delete'><a href='remove/<%=item.id%>' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i>   Retirer du panier</a></td>
                 </tr>
@@ -61,20 +61,7 @@
             </tbody>
         </table><!--cart overview end -->
     </div>
-    <div class="space-20"></div>
-    <div class="coupon-row">
-        <div class="row">
-            <div class="col-sm-4">
-                <form class="coupon-form">
-                    <input type="text" class="form-control" placeholder="Coupon code">
-                    <button type="button">Apply</button>
-                </form>
-            </div>
-            <div class="col-sm-3 col-sm-offset-5 text-right">
-                <a href="http://example.com" class="btn btn-light-dark">Update Cart</a>
-            </div>
-        </div>
-    </div><!--cart row-->
+
     <div class="space-30"></div>
     <div class="cart-total">
         <div class="row">
@@ -88,17 +75,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Subtotal</td>
-                            <td><%= @total %>€</td>
-                        </tr>
                          <tr>
-                            <td>Shipping</td>
-                            <td>Free Shipping <a href="http://example.com" class="shipping-calculate">Calculate Shipping</a></td>
+                            <td>Frais de livraisons</td>
+                            <td>Offerts pour toutes nos photos !</td>
                         </tr>
                          <tr>
                             <td>Total</td>
-                            <td class="total"><%= @total %>€</td>
+                            <td class="total"><%= @total/100 %>€</td>
                         </tr>
                         <tr>
                             <td colspan="2">

@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
 	def pay_cart
     @total = 0
     current_user.cart.items.each do |item|
-      @total += item.price
+      @total += item.price * item.quantity
     end
     #Montant en centimes !
     @amount = @total
@@ -39,12 +39,16 @@ class OrdersController < ApplicationController
         :currency     => "eur",
     )
 
+		create
+		empty_cart
+		redirect_to root_path
+		#user_profile_path(current_user.id)
+		flash[:success] = "Votre commande a bien été effectuée."
+
     rescue Stripe::CardError => e
       flash[:error] = e.message
-			create
-			empty_cart
-      redirect_to user_profile_path(current_user.id)
-			flash[:success] = "Votre commande a bien été effectuée."
+
+
 
 	end
 
