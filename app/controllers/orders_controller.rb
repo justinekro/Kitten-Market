@@ -19,12 +19,37 @@ class OrdersController < ApplicationController
 		current_user.cart.items = []
 	end
 
-	def payement
-		
+	def pay_cart
+    @total = 0
+    current_user.cart.items.each do |item|
+      @total += item.price
+    end
+    #Montant en centimes !
+    @amount = @total
+
+    customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+        :customer     => customer.id,
+        :amount       => @amount.to_i,
+        :description  => 'Paiement du client #{@user.email}',
+        :currency     => "eur",
+    )
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+			create
+			empty_cart
+      redirect_to user_profile_path(current_user.id)
+			flash[:success] = "Votre commande a bien été effectuée."
+
 	end
 
 	def send_emails
-		
+
 	end
 
 end
