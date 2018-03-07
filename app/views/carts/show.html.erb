@@ -96,7 +96,8 @@
                             <td class="total"><%= @total %>€</td>
                         </tr>
                         <tr>
-                            <td colspan="2"> <a href="http://example.com" class="btn btn-lg btn-skin">Proceed to checkout</a></td>
+                            <td colspan="2">
+                            <%= link_to 'Valider votre panier', orders_path, :method => :post, class:"btn btn-lg btn-skin" %> </td> 
                         </tr>
                     </tbody>
                 </table>
