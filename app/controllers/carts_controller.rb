@@ -5,7 +5,7 @@ class CartsController < ApplicationController
     @total = 0
     current_user.cart.items.each do |item|
       @total += item.price
-    end 
+    end
   end
 
   def add_to_cart
@@ -17,7 +17,7 @@ class CartsController < ApplicationController
         current_user.cart.items << Item.find(params[:id])
       end
       redirect_to cart_path(current_user.cart)
-    else 
+    else
       flash[:error] = "Merci de vous authentifier pour accéder à votre panier"
       redirect_to new_user_session_path
     end
@@ -28,5 +28,6 @@ class CartsController < ApplicationController
     current_user.cart.items -= [item]
     redirect_to cart_path(current_user.cart)
   end
+
 
 end

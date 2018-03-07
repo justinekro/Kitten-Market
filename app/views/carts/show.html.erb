@@ -22,9 +22,9 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
                     <th>Total</th>
                     <th></th>
                 </tr>
@@ -32,7 +32,7 @@
             <tbody>
                 <!-- Maybe won't be @items, as we don't want all items-->
 
-                
+
                 <% current_user.cart.items.each do |item| %>
                 <tr>
                     <td class="product-image">
@@ -51,10 +51,10 @@
                     <td class='product-delete'><a href='remove/<%=item.id%>' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i>   Retirer du panier</a></td>
                 </tr>
                 <% end %>
-                
+
 
             </tbody>
-        </table><!--cart overview end -->             
+        </table><!--cart overview end -->
     </div>
     <div class="space-20"></div>
     <div class="coupon-row">
@@ -64,7 +64,7 @@
                     <input type="text" class="form-control" placeholder="Coupon code">
                     <button type="button">Apply</button>
                 </form>
-            </div>   
+            </div>
             <div class="col-sm-3 col-sm-offset-5 text-right">
                 <a href="http://example.com" class="btn btn-light-dark">Update Cart</a>
             </div>
@@ -97,12 +97,37 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                            <%= link_to 'Valider votre panier', orders_path, :method => :post, class:"btn btn-lg btn-skin" %> </td> 
+                            <%= link_to 'Valider votre panier', orders_path, :method => :post, class:"btn btn-lg btn-skin" %>
+                            <!-- BOuton paiement Stripe -->
+                            <%= form_tag paiement_panier_path do %>
+                              <article>
+                                <% if flash[:error].present? %>
+                                  <div id="error_explanation">
+                                    <p><%= flash[:error] %></p>
+                                  </div>
+                                <% end %>
+                              </article>
+
+                              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                      data-description="Votre commande"
+                                      data-amount= "<%= @total %>"
+                                      data-currency = "eur"
+                                      data-locale="auto"></script>
+                            <% end %>
+                            <!-- FIN - BOuton paiement Stripe -->
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+
+
+
+
+
 </div>
 <% end %>
