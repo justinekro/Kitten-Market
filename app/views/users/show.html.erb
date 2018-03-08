@@ -55,15 +55,17 @@
                     <tbody>
 
                         <tr>
-                        <% order.items.each do |item| %>
+                        <% order.products.each do |product| %>
+                        <%# if product.quantity > 0 %>
 
                             <td valign="middle">
-                                <%= image_tag item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
+                                <%= image_tag product.item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
                             </td>
-                            <td valign="middle"><%=item.title %></td>
-                            <td valign="middle"><%=item.price/100 %>€</td>
-                            <td valign="middle"><%= item.quantity %></td>
+                            <td valign="middle"><%=product.item.title %></td>
+                            <td valign="middle"><%=product.item.price/100 %>€</td>
+                            <td valign="middle"><%= product.quantity %></td>
                         </tr>
+                        <% #end %>
                         <% end %>
                         <% end %>
                     </tbody>

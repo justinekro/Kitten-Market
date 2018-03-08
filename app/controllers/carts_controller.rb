@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   def show
     @total = 0
     current_user.cart.products.each do |product|
-      @total += product.item.price * product.quantity
+      @total += product.item.price.to_i * product.quantity
     end 
   end
 

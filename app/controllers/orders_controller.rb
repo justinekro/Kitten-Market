@@ -1,30 +1,26 @@
 class OrdersController < ApplicationController
 
-	def create
+	def create_order
+	# Quant on crée une order, on	
+		order = Order.create(user: current_user)
+		current_user.cart.products.each do |product|
+			order.products << product
+			order.save
+		end
 
-		#if current.user.cart.nil?
-			#flash[:error] = "Votre panier est vide"
-			#redirect_to cart_path(current_user.cart)
-		#else
-			@order = Order.create(user: current_user)
-			@order.items << current_user.cart.items
-
-			#On redirige sur stripe
-
-			#On appelle la méthode qui vide le panier
-		#end
-	end
-
-	def empty_cart
-		current_user.cart.items = []
+		current_user.cart.products.each do |product|
+			product.quantity = 0
+			product.save
+		end
+	order
 	end
 
 	def pay_cart
     @total = 0
-    current_user.cart.items.each do |item|
-      @total += item.price * item.quantity
+    current_user.cart.products.each do |product|
+      @total += product.item.price * product.quantity
     end
-    #Montant en centimes !
+
     @amount = @total
 
     customer = Stripe::Customer.create(
@@ -39,9 +35,8 @@ class OrdersController < ApplicationController
         :currency     => "eur",
     )
 
-		create
-		empty_cart
-		redirect_to root_path
+		create_order
+		redirect_to user_profile_path(current_user.id)
 		#user_profile_path(current_user.id)
 		flash[:success] = "Votre commande a bien été effectuée."
 
