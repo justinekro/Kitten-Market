@@ -8,7 +8,7 @@
 <% if current_user.id == @user.id %>
 
 <div class="space-60"></div>
-    <div class="container">
+    <div>
     	<h3>Vos informations</h3>
     	<p>Votre nom : <%= @user.firstname %></p>
     	<p>Votre prénom : <%= @user.name %></p>
@@ -18,14 +18,14 @@
 
     <div class="space-60"></div>
 
-    <div class="container">
+    <div>
         <h3>Vos commandes</h3>
         <% if @user.orders.count == 0 %>
         <p> Vous n'avez pas encore craqué pour nos petites bouilles de chatons, mais cela ne saurait tarder...</p>
         <%else%>
 
         <div class="space-60"></div>
-        <div class="container">
+        <div>
 
             <% @user.orders.each do |order| %>
 

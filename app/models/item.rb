@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 		has_many :products
-	  validates :title, :description, :price, :image_url, presence: true
+	  validates :title, :description, :price, presence: true
     
 
 		# This method associates the attribute "item_image" with a file attachment

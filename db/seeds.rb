@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Item.create(title:"Poutou", description: "Un must have pour afficher votre salon", price:"500", image_url:"kitten_1.jpg")
+Item.create(title:"Poutou", description: "Un must have pour afficher dans votre salon", price:"500", image_url:"kitten_1.jpg")
 Item.create(title:"Minouille", description: "Oh la petite bouille trop crognon !!", price:"800", image_url:"kitten_2.jpg")
 Item.create(title:"Bichette", description: "Une chatounette sauvage mais si jolie", price:"700", image_url:"kitten_3.jpg")
 Item.create(title:"Pupuce", description: "Un chaton, c'est mignon", price:"500", image_url:"kitten_4.jpg")
