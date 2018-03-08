@@ -1,25 +1,41 @@
-<h1> Créer un nouvel item </h1>
-
-<%= form_tag (items_path), multipart: true do %>
-
-<div class="row">
- <div class="col-md-6 col-md-offset-3">
-   
-
- <p> <%= label_tag 'title', "Titre" %> </p>
- <p> <%= text_field_tag(:title) %> </p>  
-
- <p> <%= label_tag 'description', "Description"  %> </p>
- <p> <%= text_field_tag(:description) %> </p>
-
- <p> <%= label_tag 'price', "Price"  %> </p>
- <p> <%= number_field_tag(:price) %> </p>
-
- <p> <%= label_tag 'image', "Image" %> </p>
- <p> <%= file_field_tag(:item_image) %> </p>
-
-<p> <%= submit_tag 'Je crée un item', class: "btn btn-primary"%></p>
- </div>
+<!--breadcrumb start-->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <h1>Ajouter une nouvelle photo dans notre boutique</h1>
+    </div>
 </div>
+<div class="space-60"></div>
+  <div class="row">
+      <div class="col-md-8">
+          <div class="sky-form-login">
+              <%= form_tag (items_path), multipart: true do %>
 
-<% end %>
+                  <div class="row">
+                      <div class="field input">
+                        <%= label_tag 'title', "Titre :" %>
+                        <%= text_field_tag(:title) %>
+                      </div>
+                      <br>
+                      <div class="field input">
+                        <%= label_tag 'description', "Description :"  %>
+                        <%= text_area_tag(:description) %>
+                      </div>
+                      <br>
+                      <div class="field input">
+                        <%= label_tag 'price', "Prix souhaité (en euros):"  %>
+                        <%= number_field_tag(:price) %>
+                      </div>
+                      <br>
+                      <div class="field input">
+                        <%= label_tag 'image', "Lien de l'image" %>
+                        <%= file_field_tag(:item_image) %>
+                      </div>
+                      <br><br>
+                      <p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+                  </div>
+
+              <% end %>
+          </div>
+      </div>
+  </div>
+</div>
