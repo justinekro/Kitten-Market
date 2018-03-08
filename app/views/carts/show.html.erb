@@ -7,7 +7,7 @@
 <!--end breadcrumb-->
 
 <!-- Cart show view from template start -->
-<% if current_user.cart.products.size == 0 %>
+<% if total_quantity == 0 %>
 <div class=""
     <p> Votre panier est vide ! </p>
     <%= link_to 'Retour aux photos de chatons', root_path %>
