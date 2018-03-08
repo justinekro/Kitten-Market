@@ -2,27 +2,30 @@ class CartsController < ApplicationController
 
   def show
     @total = 0
-    current_user.cart.items.each do |item|
-      @total += item.price * item.quantity
+    current_user.cart.products.each do |product|
+      @total += product.item.price * product.quantity
     end 
   end
 
   def add_to_cart
     item = Item.find(params[:id])
-    item.quantity +=1
-    item.save
     if user_signed_in?
-      if current_user.cart
-        #current_user.cart.items << Item.find(params[:id])
-          unless current_user.cart.items.include?(item)
-            current_user.cart.items << item
-          end
-      else
+      if !current_user.cart
         Cart.create(user: current_user)
-        #current_user.cart.items << Item.find(params[:id])
-        current_user.cart.items << item 
+        Item.all.each do |item|
+          product = Product.create(item_id:item.id, quantity: 0)
+          current_user.cart.products << product
+          current_user.cart.save
+        end
+        a = current_user.cart.products.where(item_id:item.id).first
+        a.quantity +=1
+        a.save
+      else
+        a = current_user.cart.products.where(item_id:item.id).first
+        a.quantity +=1
+        a.save
       end
-      redirect_to cart_path(current_user.cart)
+        redirect_to cart_path(current_user.cart)
     else
       flash[:error] = "Merci de vous authentifier pour accéder à votre panier"
       redirect_to new_user_session_path
@@ -31,13 +34,14 @@ class CartsController < ApplicationController
 
   def remove_from_cart
     item = Item.find(params[:id])
-    if item.quantity <= 1
-      current_user.cart.items.delete(item)
-      item.quantity = 0
-      item.save
+    product = current_user.cart.products.where(item_id:item.id).first
+    if product.quantity <= 1
+      current_user.cart.products.delete(product)
+      product.quantity = 0
+      product.save
     else 
-      item.quantity -= 1
-      item.save
+      product.quantity -= 1
+      product.save
     end
     redirect_to cart_path(current_user.cart)
   end

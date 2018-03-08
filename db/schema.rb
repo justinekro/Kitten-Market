@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307155437) do
+ActiveRecord::Schema.define(version: 20180308091741) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20180307155437) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "carts_items", id: false, force: :cascade do |t|
+  create_table "carts_products", id: false, force: :cascade do |t|
     t.integer "cart_id", null: false
-    t.integer "item_id", null: false
+    t.integer "product_id", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -35,12 +35,6 @@ ActiveRecord::Schema.define(version: 20180307155437) do
     t.string "item_image_content_type"
     t.integer "item_image_file_size"
     t.datetime "item_image_updated_at"
-    t.integer "quantity", default: 0
-  end
-
-  create_table "items_orders", id: false, force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.integer "item_id", null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -48,6 +42,19 @@ ActiveRecord::Schema.define(version: 20180307155437) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "orders_products", id: false, force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_products_on_item_id"
   end
 
   create_table "users", force: :cascade do |t|
