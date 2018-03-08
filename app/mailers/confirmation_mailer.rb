@@ -2,9 +2,9 @@ class ConfirmationMailer < ApplicationMailer
   default from: "sdanfakha@gmail.com"
 
   def sample_email(email)
-    
     mail(to: email, subject: 'Confirmation de votre nouveau compte')
   end
+  
 end
 
 

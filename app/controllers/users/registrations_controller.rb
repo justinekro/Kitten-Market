@@ -25,23 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     @user = User.last
     p "Coucou ca marche"
-        ConfirmationMailer.sample_email(@user.email).deliver!
-
-    # respond_to do |format|
-    
-      # Sends email to user when user is created.
-
-      #   format.html { redirect_to @user, notice: 'User was successfully created.' }
-      #   format.json { render :show, status: :created, location: @user }
-      # else
-
-      #   puts "user non créer"
-        
-      #   format.html { render :new }
-      #   format.json { render json: @user.errors, status: :unprocessable_entity }
-      # end
-    # end
-
+    ConfirmationMailer.sample_email(@user.email).deliver!
   end
 
 

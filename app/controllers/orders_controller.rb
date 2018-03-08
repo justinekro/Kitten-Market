@@ -41,16 +41,20 @@ class OrdersController < ApplicationController
 
 		create
 		empty_cart
+		ConfirmationMailer.sample_email(current_user.email).deliver!
 		redirect_to root_path
 		#user_profile_path(current_user.id)
+
+
+
 		flash[:success] = "Votre commande a bien été effectuée."
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
 
-
-
 	end
+
+
 
 	def send_emails
 
