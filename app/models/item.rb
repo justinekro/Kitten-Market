@@ -8,9 +8,6 @@ class Item < ApplicationRecord
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>',
-    large: '600x600>',
-    #:storage => :s3,
-		#:s3_host_name => 's3-eu-west-1.amazonaws.com',
   }
 
 # Validate the attached image is image/jpg, image/png, etc

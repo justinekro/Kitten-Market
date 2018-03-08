@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
 
+	def index
+		@orders = Order.all
+	end
+	
+
 	def create_order
 	# Quant on crée une order, on	
 		order = Order.create(user: current_user)
