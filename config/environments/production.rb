@@ -1,6 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # require 'dotenv'
+  # Added config for mail in production, :host should be set to the actual host of your application
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :user_name => ENV['MAILJET_USERNAME'],
+  :password => ENV['MAILJET_PASSWORD'],
+  :address => 'in-v3.mailjet.com',
+  :port => '587',
+  }
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
