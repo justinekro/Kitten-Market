@@ -1,2 +1,22 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<h1> Créer un nouvel item </h1>
+
+<%= form_tag (items_path), multipart: true do %>
+
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+   
+
+ <p> <%= label_tag 'title', "?" %> </p>
+ <p> <%= text_field_tag(:title) %> </p>  
+
+ <p> <%= label_tag 'description', "?"  %> </p>
+ <p> <%= text_field_tag(:description) %> </p>
+
+ <p> <%= label_tag 'image', "?" %> </p>
+ <p> <%= file_field_tag(:item_image) %> </p>
+
+<p> <%= submit_tag 'Je crée un utilisateur', class: "btn btn-primary"%></p>
+ </div>
+</div>
+
+<% end %>
