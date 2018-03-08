@@ -21,9 +21,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    @user = User.last
+    p "Coucou ca marche"
+    ConfirmationMailer.sample_email(@user.email).deliver!
+  end
+
+
 
   # GET /resource/edit
   # def edit
