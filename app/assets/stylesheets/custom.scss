@@ -96,3 +96,25 @@
     background-color: #1ab394;
 		color: white;
 }
+
+/* ---------- Index page d'accueil --- */
+.col-sm-3 .item_holder {
+    height: 320px;
+		.title h5 {
+			font-weight: bold;
+		}
+		p {
+			line-height: 18px;
+		}
+}
+
+.price_and_cart { /* POur ajouter une photo dans le panier depuis l'accueil */
+	display: flex;
+	justify-content: space-between;
+	margin: 0px -15px;
+	bottom: 10px;
+	position: absolute;
+	align-items: end;
+	width: 100%;
+	padding: 0 15px;
+}
