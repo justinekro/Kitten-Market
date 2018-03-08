@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	resources :carts
 	resources :items
   resources :charges, only:[:new,:create]
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   get 'users/:id', to: "users#show", as: "user_profile"
   get 'carts/remove/:id', to: "carts#remove_from_cart"

@@ -11,7 +11,6 @@ Rails.application.configure do
   :port => '587',
   }
 
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
