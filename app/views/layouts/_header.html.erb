@@ -55,12 +55,14 @@
 
                                             <ul class="nav nav-classic">
                                                 <% if user_signed_in? %>
-                                                          <li style="padding: 10px 15px;">Bonjour <%= current_user.email %>
+                                                          <li style="padding: 10px 15px;">Bonjour <%= current_user.firstname %>
                                                           </li>
                                                           <hr>
-                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-user dropdown-item') + "Modifier mon compte", edit_user_registration_path %>
+                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-user-circle') + "Voir mon compte et mes commandes", user_profile_path %>
                                                           </li>
-                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-user dropdown-item') + "Ajouter une photo la boutique", new_item_path %>
+                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-cogs') + "Modifier mon compte", edit_user_registration_path %>
+                                                          </li>
+                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-arrow-circle-down') + "Ajouter une photo dans la boutique", new_item_path %>
                                                           </li>
                                                           <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt') + " Se déconnecter ", destroy_user_session_path, method: :delete  %>
                                                           </li>
@@ -81,7 +83,7 @@
                     <% if user_signed_in? && current_user.cart %>
                     <li class="dropdown yamm-fw dropdown-panier"><!-- Partie sur le PAnier -->
                         <%= link_to 'Mon panier', cart_path(current_user.cart.id), class: "kitten_lienpremierniveau", data: {toggle:"dropdown", role:"button"} %>
-                        <i style="font-size: 17px; margin: 0 6px 0px -6px;" class="fas fa-shopping-cart"></i> <span class="badge" style="padding: 6px 10px 6px 10px; background-color: lightskyblue;"><%= total_quantity %></span></a>
+                        <i style="font-size: 17px; margin: 0 6px 0px -6px;" class="fas fa-shopping-cart"></i> <span class="badge" style="padding: 6px 10px 6px 10px; background-color: lightskyblue;"><%= total_quantity.to_i %></span></a>
                         <div class="dropdown-menu shopping-cart">
 
                             <div class="cart-header">

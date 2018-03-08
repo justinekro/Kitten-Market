@@ -8,14 +8,14 @@
 
 <!-- Cart show view from template start -->
 <% if current_user.cart.products.size == 0 %>
-<div class="container"
+<div class=""
     <p> Votre panier est vide ! </p>
     <%= link_to 'Retour aux photos de chatons', root_path %>
 </div>
 
 <% else %>
 <div class="space-60"></div>
-<div class="container">
+<div class="">
     <div class="table-responsive">
         <!-- Cart overview start-->
         <table class="table table-condensed cart-table">
@@ -48,7 +48,7 @@
                         <%= link_to (image_tag 'minus.png', width: "20px"), remove_from_cart_path(product.item) %>
                     </td>
                     <td class="product-quantity">
-                        
+
                     </td>
                     <!-- Changes according to the quantity of the product. Need to be edited-->
                     <td class="product-total">
@@ -67,8 +67,8 @@
     <div class="space-30"></div>
     <div class="cart-total">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-8">
-                <h2>Cart total</h2>
+            <div class="col-sm-5 col-sm-offset-7">
+                <h2>Panier total</h2>
                 <table class="table table-condensed">
                     <thead>
                         <tr>
@@ -87,7 +87,6 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                            <%= link_to 'Valider votre panier', orders_path, :method => :post, class:"btn btn-lg btn-skin" %>
                             <!-- BOuton paiement Stripe -->
                             <%= form_tag paiement_panier_path do %>
                               <article>
