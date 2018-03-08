@@ -47,7 +47,8 @@ class OrdersController < ApplicationController
     )
 
 		create_order
-		ConfirmationMailer.sample_email(current_user.email).deliver!
+		# ConfirmationMailer.sample_email(current_user.email).deliver!
+		CheckoutMailer.sample_buying(current_user.email).deliver!
 		redirect_to user_profile_path(current_user.id)
 
 		#user_profile_path(current_user.id)
