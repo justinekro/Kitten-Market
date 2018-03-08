@@ -14,11 +14,11 @@
                 <div class="col-md-5 margin-b-30">
                     <div class="item">
                     	<% if @item.image_url.nil? %>
-                    		<%= image_tag @item.item_image.url(:square) %>
+                    		<%= image_tag @item.item_image.url(:medium) %>
                     	<% else %>
-                       	 <%= image_tag @item.image_url, class: "img-responsive", alt: 'photo de chat' %>
+                       	 <% image_tag @item.image_url, class: "img-responsive", alt: 'photo de chat' %>
                       <% end %>
-                    </div>s
+                    </div>
                 </div>
                 <div class="col-md-7">
                     <div class="product-detail-desc">
