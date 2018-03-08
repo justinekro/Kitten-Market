@@ -7,7 +7,7 @@
 <!--end breadcrumb-->
 
 <!-- Cart show view from template start -->
-<% if current_user.cart.items.size == 0 %>
+<% if current_user.cart.products.size == 0 %>
 <div class="container"
     <p> Votre panier est vide ! </p>
     <%= link_to 'Retour aux photos de chatons', root_path %>
@@ -33,27 +33,29 @@
                 <!-- Maybe won't be @items, as we don't want all items-->
 
 
-                <% current_user.cart.items.uniq.each do |item| %>
+                <% current_user.cart.products.uniq.each do |product| %>
                 <tr>
+                    <% if product.quantity > 0 %>
                     <td class="product-image">
-                        <%= image_tag item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
+                        <%= image_tag product.item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
                     </td>
                     <!-- title should be a link to "item show", give it a try-->
-                    <td class='product-name'><a href="/items/<%=item.id%>"><%= item.title %></a></td>
-                    <td class="product-price"><%= item.price / 100 %>€</td>
+                    <td class='product-name'><a href="/items/<%=product.item.id%>"><%= product.item.title %></a></td>
+                    <td class="product-price"><%= product.item.price / 100 %>€</td>
                     <td class="product-quantity">
-                        <%= item.quantity %>
-                        <%= link_to image_tag('plus.png', width:"20px", style:"margin-left:10px;"), add_to_cart_path(item) %>
-                        <%= link_to (image_tag 'minus.png', width: "20px"), remove_from_cart_path(item) %>
+                        <%= product.quantity %>
+                        <%= link_to image_tag('plus.png', width:"20px", style:"margin-left:10px;"), add_to_cart_path(product.item) %>
+                        <%= link_to (image_tag 'minus.png', width: "20px"), remove_from_cart_path(product.item) %>
                     </td>
                     <td class="product-quantity">
                         
                     </td>
                     <!-- Changes according to the quantity of the product. Need to be edited-->
                     <td class="product-total">
-                        <%= (item.price/100) * item.quantity %>€
+                        <%= (product.item.price/100) * product.quantity %>€
                     </td>
-                    <td class='product-delete'><a href='remove/<%=item.id%>' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i>   Retirer du panier</a></td>
+                    <td class='product-delete'><a href='remove/<%=product.item.id%>' data-toggle='tooltip' data-placement='top' title='Remove this item'><i class="fa fa-times"></i>   Retirer du panier</a></td>
+                    <%end%>
                 </tr>
                 <% end %>
 

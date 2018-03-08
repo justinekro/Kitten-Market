@@ -87,27 +87,24 @@
                             </div><!--end of cart-header-->
 
                             <div class="cart-items content-scroll">
-                                <% current_user.cart.items.uniq.each do |item| %>
+                                <% current_user.cart.products.uniq.each do |product| %>
+                                <% if product.quantity > 0 %>
                                 <div class="cart-item clearfix">
+                                    
                                     <div class="description">
-                                        <%= link_to item.title, item_path(item)%>
-                                        <strong class="price"><%=item.price/100%>€. Quantité : <%=item.quantity%></strong>
+                                        <%= link_to product.item.title, item_path(product.item)%>
+                                        <strong class="price"><%=product.item.price/100%>€. Quantité : <%=product.quantity%></strong>
                                     </div><!--Description-->
 
                                     <div class="buttons">
                                         <!--  MODIFIER LE PATH Pour mettre le chemin vers l'edition de l'objet du panier et suppression de l'objet du panier -->
                                         <%= link_to content_tag(:i, nil, class: 'fas fa-edit'), root_path %>
-                                        <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), remove_from_cart_path(item.id) %>
+                                        <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), remove_from_cart_path(product.item.id) %>
                                     </div>
+                                    <%end%>
                                 </div><!--cart item-->
                                 <% end %>
                             </div><!--cart-items-->
-
-                            <div class="cart-footer">
-                                <%= link_to 'Voir le panier', cart_path(current_user.cart), class:"btn btn-light-dark"%>
-                                <a href="#" class="btn btn-skin"> Passer la commande</a>
-                            </div><!--footer of cart-->
-
 
                         </div><!--cart dropdown end-->
                     </li>
