@@ -36,7 +36,6 @@ class CartsController < ApplicationController
     item = Item.find(params[:id])
     product = current_user.cart.products.where(item_id:item.id).first
     if product.quantity <= 1
-      current_user.cart.products.delete(product)
       product.quantity = 0
       product.save
     else 

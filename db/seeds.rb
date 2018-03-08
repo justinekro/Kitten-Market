@@ -16,10 +16,10 @@ Item.create(title:"Pouliche", description: "Cette petite merveille adore les gra
 Item.create(title:"Foufoune", description: "Foufoune, la plus coquine des petites chates", price:"900", image_url:"kitten_7.jpg")
 Item.create(title:"Pitchoune", description: "Un petit trésor à poil", price:"500", image_url:"kitten_8.jpg")
 Item.create(title:"Crapule", description: "Elle fait plein de bêtises mais c'est un trésor", price:"460", image_url:"kitten_9.jpg")
-Item.create(title:"Noisette", description: "Attention, piège !!! C'est un chiot lol", price:"100", image_url:"kitten_10.jpg")
+Item.create(title:"Noisette", description: "Attention, piège !!! C'est un chiot lol", price:"300", image_url:"kitten_10.jpg")
 Item.create(title:"Craspouille", description: "Une mimi cracra en puissance", price:"800", image_url:"kitten_11.jpg")
 Item.create(title:"Amour", description: "Un amour de chat", price:"500", image_url:"kitten_12.jpg")
-Item.create(title:"Félix", description: "Félix le chat", price:"70", image_url:"kitten_13.jpg")
+Item.create(title:"Félix", description: "Félix le chat", price:"700", image_url:"kitten_13.jpg")
 
 
 User.create(firstname:"Loulou", email:"loulou@gmail.com", password:"coucou")
