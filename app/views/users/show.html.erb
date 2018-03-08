@@ -1,48 +1,37 @@
 <!--breadcrumb start-->
-        <div class="breadcrumb-wrapper">
-            <div class="container">
-                <h1>Votre compte</h1>
-            </div>
-        </div>
-        <!--end breadcrumb-->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <h1>Votre compte</h1>
+    </div>
+</div>
 
-        <!--Profile infos start-->
+<% if current_user.id == @user.id %>
 
-		<div class="space-60"></div>
-		<div class="container">
-			<h3>Vos informations</h3>
-			<p>Votre nom : <%= current_user.firstname %></p>
-			<p>Votre prénom : <%= current_user.name %></p>
-			<p>Votre adresse email : <%= current_user.email %></p>
-			<!-- add a button to go to the edit page -->
-		</div>
+<div class="space-60"></div>
+    <div class="container">
+    	<h3>Vos informations</h3>
+    	<p>Votre nom : <%= @user.firstname %></p>
+    	<p>Votre prénom : <%= @user.name %></p>
+    	<p>Votre adresse email : <%= @user.email %></p>
+    	<!-- add a button to go to the edit page -->
+    </div>
 
-        <!--Profile infos end-->
+    <div class="space-60"></div>
 
-		<!--Order history start-->
-		<div class="space-60"></div>
-		<div class="container">
-		<h3>Vos commandes</h3>
-		<% if current_user.orders.count == 0 %>
-			<p> Vous n'avez pas encore craqué pour nos petites bouilles de chatons, mais cela ne saurait tarder...</p>
-		<%else%>
+    <div class="container">
+        <h3>Vos commandes</h3>
+        <% if @user.orders.count == 0 %>
+        <p> Vous n'avez pas encore craqué pour nos petites bouilles de chatons, mais cela ne saurait tarder...</p>
+        <%else%>
 
         <div class="space-60"></div>
         <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-8">
-                    <form class="search-form">
-                        <input type="text" class="form-control" placeholder="Search Order">
-                        <i class="fa fa-search"></i>
-                    </form>
-                </div>
-            </div>
-            <% current_user.orders.each do |order| %>
+
+            <% @user.orders.each do |order| %>
 
             <!-- date is printed twice, need to be fixed -->
             <h5>Votre commande du <%= order.created_at.strftime("%d-%m-%Y") %></h5>
             <div class="table-responsive table-order-history">
-
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -52,44 +41,30 @@
                             <th>Quantité</th>
                         </tr>
                     </thead>
+                
                     <tbody>
-
                         <tr>
                         <% order.products.each do |product| %>
-                        <%# if product.quantity > 0 %>
-
+                        <% if product.quantity > 0 %>
                             <td valign="middle">
-                                <%= image_tag product.item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
+                            <%= image_tag product.item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
                             </td>
                             <td valign="middle"><%=product.item.title %></td>
                             <td valign="middle"><%=product.item.price/100 %>€</td>
                             <td valign="middle"><%= product.quantity %></td>
+                            <% end %>
                         </tr>
-                        <% #end %>
-                        <% end %>
-                        <% end %>
+                    <% end %>      
                     </tbody>
                 </table>
             </div>
-            		<nav>
-                    	<ul class="pagination pull-right clearfix">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">«</span>
-                                </a>
-                            </li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">»</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+            <% end %>
         </div>
         <% end %>
-		<!--Order history end-->
+    </div>
+</div>
+
+<% else %>
+
+<p> Veuillez vous connecter pour accéder à votre profil </p>
+<% end %>

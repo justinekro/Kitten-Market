@@ -6,18 +6,24 @@ class OrdersController < ApplicationController
 	
 
 	def create_order
-	# Quant on crée une order, on	
+		#on crée une commande dès que le paiement est validé
 		order = Order.create(user: current_user)
-		current_user.cart.products.each do |product|
-			order.products << product
-			order.save
-		end
 
 		current_user.cart.products.each do |product|
-			product.quantity = 0
-			product.save
+			new_product = Product.create(item_id: product.item.id, quantity: product.quantity)
+			order.products << new_product
+			order.save
 		end
-	order
+		order
+
+
+		#on vide le panier dès que le paiement est validé
+		current_user.cart.products = []
+    Item.all.each do |item|
+      product = Product.create(item_id:item.id, quantity: 0)
+      current_user.cart.products << product
+      current_user.cart.save
+    end
 	end
 
 	def pay_cart
