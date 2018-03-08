@@ -35,7 +35,7 @@
 	    <h2 class="section-heading">Toutes les photos de nos chatons</h2>
 
 	 	<% @items.each do |item| %>
-        <div class="col-sm-4 ">
+        <div class="col-sm-3 ">
             <div class="item_holder">
             	<a href="/items/<%=item.id%>">
 				<% if item.image_url.nil? %>
@@ -47,8 +47,14 @@
                 <div class="title">
                     <h5><%= item.title%></h5>
                     <p> <%= item.description%> </p>
-                    <span class="price"><%= item.price/100%>€</span>
-                </div>
+										<div class="price_and_cart">
+											<span class="price"><%= item.price/100%>€</span>
+											<div class="add-buttons">
+													<a href="/items/add/<%=item.id%>" data-toggle="tooltip" data-placement="top" title="Ajouter un élément au panier" class="btn btn-skin"><i class="fas fa-cart-arrow-down"></i></a>
+											</div>
+										</div>
+								</div>
+
             </div><!--item holder-->
         </div><!--col end-->
 		<% end %>
