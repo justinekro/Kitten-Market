@@ -25,7 +25,7 @@ class CartsController < ApplicationController
         a.quantity +=1
         a.save
       end
-        redirect_to cart_path(current_user.cart)
+        redirect_to request.referrer
     else
       flash[:error] = "Merci de vous authentifier pour accéder à votre panier"
       redirect_to new_user_session_path
@@ -42,7 +42,7 @@ class CartsController < ApplicationController
       product.quantity -= 1
       product.save
     end
-    redirect_to cart_path(current_user.cart)
+    redirect_to request.referrer
   end
 
 

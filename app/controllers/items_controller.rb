@@ -21,10 +21,29 @@ class ItemsController < ApplicationController
   	@similar_items = Item.select {|item| item.id != @item.id}.slice(0, 3)
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(items_params)
+      redirect_to @item
+    else 
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+  end
+
   private
     def items_params
 
-      params.permit(:title, :description, :price, :item_image, :quantity)
+      params.permit(:title, :description, :price, :item_image)
       
     end
 end
