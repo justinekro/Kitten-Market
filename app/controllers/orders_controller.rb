@@ -2,8 +2,7 @@ class OrdersController < ApplicationController
 
 	def index
 		@orders = Order.all
-	end
-	
+	end	
 
 	def create_order
 		#on crée une commande dès que le paiement est validé
@@ -15,7 +14,6 @@ class OrdersController < ApplicationController
 			order.save
 		end
 		order
-
 
 		#on vide le panier dès que le paiement est validé
 		current_user.cart.products = []
