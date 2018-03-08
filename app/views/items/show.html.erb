@@ -13,12 +13,12 @@
             <div class="row">
                 <div class="col-md-5 margin-b-30">
                     <div class="item">
-                    	<%# if @item.image_url = nil %>
+                    	<% if @item.image_url.nil? %>
                     		<%= image_tag @item.item_image.url(:square) %>
-                    	<%# else %>
-                       	 <%# image_tag @item.image_url, class: "img-responsive", alt: 'photo de chat' %>
-                      <%#end%>
-                    </div>
+                    	<% else %>
+                       	 <%= image_tag @item.image_url, class: "img-responsive", alt: 'photo de chat' %>
+                      <% end %>
+                    </div>s
                 </div>
                 <div class="col-md-7">
                     <div class="product-detail-desc">
