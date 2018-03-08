@@ -21,6 +21,7 @@ Item.create(title:"Craspouille", description: "Une mimi cracra en puissance", pr
 Item.create(title:"Amour", description: "Un amour de chat", price:"500", image_url:"kitten_12.jpg")
 Item.create(title:"Félix", description: "Félix le chat", price:"700", image_url:"kitten_13.jpg")
 Item.create(title:"Datcha", description: "Elle n'a pas de prix...", price:"1000000", image_url:"kitten_14.jpg")
+Item.create(title:"Rémi", description: "Mignon, mais moins que Datcha", price:"23000", image_url:"kitten_15.jpg")
 
 
 User.create(firstname:"Loulou", name:"test", email:"loulou@gmail.com", password:"coucou")
