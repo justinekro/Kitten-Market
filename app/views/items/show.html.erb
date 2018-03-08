@@ -29,6 +29,11 @@
                         <div class="add-buttons">
                             <a href="/items/add/<%=@item.id%>" data-toggle="tooltip" data-placement="top" title="Add to cart" class="btn btn-skin btn-lg"><i class="fa fa-shopping-cart"></i> Ajouter au panier</a>
                         </div>
+                        <% if current_user && current_user.admin? %>
+                        <div class="add-buttons">
+                            <%= link_to content_tag(:i, nil, class: 'fas fa-edit') + "Modifier le produit", edit_item_path(@item.id), class:"btn btn-skin btn-lg" %>
+                        </div>
+                        <%end%>
                     </div>
                 </div>
             </div>
@@ -46,125 +51,7 @@
                 </ul>
             </div>
         </div>
-
         <div class="space-40"></div>
-
-        <div class="row">
-            <div class="col-md-12 item-more-info">
-                <div>
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-justified" role="tablist">
-                        <li role="presentation" class="active"><a href="#desc" aria-controls="desc" role="tab" data-toggle="tab">Description</a></li>
-                        <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
-                        <li role="presentation"><a href="#add-cmnt" aria-controls="add-cmnt" role="tab" data-toggle="tab">Add Review</a></li>
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="desc">
-                            <p>
-                                <%= @item.description %>
-                            </p>
-                        </div>
-
-                        <div role="tabpanel" class="tab-pane" id="reviews">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object img-circle" src="#" width="80" alt="...">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h5>Emily</h5>
-                                    <p>
-                                        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
-                                    </p>
-                                    <span class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-empty"></i>
-                                    </span>
-                                </div>
-                            </div><!--media-->
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object img-circle" src="#" width="80" alt="...">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h5>Emily</h5>
-                                    <p>
-                                        Curabitur pretium tincidunt ou on peut drop des cours pas forcément en rapport avec le devlacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
-                                    </p>
-                                    <span class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-empty"></i>
-                                    </span>
-                                </div>
-                            </div><!--media-->
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object img-circle" src="#" width="80" alt="...">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h5>Emily</h5>
-                                    <p>
-                                        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
-                                    </p>
-                                    <span class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-empty"></i>
-                                    </span>
-                                </div>
-                            </div><!--media-->
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="add-cmnt">
-                            <form role="form" method="post" action="#">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputFirstName" class="control-label">First Name:<span class="text-error">*</span></label>
-                                            <div>
-                                                <input type="text" class="form-control" id="inputFirstName">
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputCompany" class="control-label">Company:</label>
-                                            <div>
-                                                <input type="text" class="form-control" id="inputCompany">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="review" class="control-label">Add Review:*</label>
-                                            <textarea class="form-control" id="review">    </textarea>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <input type="submit" class="btn-skin btn btn-lg" value="Add Review">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 <!--A changer quand on attaquera les catégories !-->

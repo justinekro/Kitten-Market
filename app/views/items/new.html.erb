@@ -1,9 +1,10 @@
-<!--breadcrumb start-->
 <div class="breadcrumb-wrapper">
     <div class="container">
-        <h1>Ajouter une nouvelle photo dans notre boutique</h1>
+        <h1>Ajouter une nouvelle photo dans la boutique de photos de chatons trop mignons</h1>
     </div>
 </div>
+
+<% if current_user && current_user.admin? %>
 <div class="space-60"></div>
   <div class="row">
       <div class="col-md-8">
@@ -39,3 +40,8 @@
       </div>
   </div>
 </div>
+<% else %>
+<div class="space-40"></div>
+
+<p> Vous devez être admin pour ajouter une photo dans la base de données </p>
+<% end %>

@@ -31,8 +31,12 @@
                                                           </li>
                                                           <li><%= link_to content_tag(:i, nil, class: 'fas fa-cogs') + "Modifier mon compte", edit_user_registration_path %>
                                                           </li>
+                                                          <% if current_user && current_user.admin? %>
                                                           <li><%= link_to content_tag(:i, nil, class: 'fas fa-arrow-circle-down') + "Ajouter une photo dans la boutique", new_item_path %>
                                                           </li>
+                                                          <li><%= link_to content_tag(:i, nil, class: 'far fa-calendar-alt') + "Voir toutes les commandes passées", orders_path %>
+                                                          </li>
+                                                          <% end %>
                                                           <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt') + " Se déconnecter ", destroy_user_session_path, method: :delete  %>
                                                           </li>
                                                     <% else%>
