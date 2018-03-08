@@ -7,7 +7,9 @@ class Item < ApplicationRecord
 	  has_attached_file :item_image, styles: {
     thumb: '100x100>',
     square: '200x200#',
-    medium: '223x129>',
+    show: '336x222>',
+    index: '223x129>',
+  
   }
 
 # Validate the attached image is image/jpg, image/png, etc

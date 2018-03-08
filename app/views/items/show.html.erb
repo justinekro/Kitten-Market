@@ -14,7 +14,7 @@
                 <div class="col-md-5 margin-b-30">
                     <div class="item">
                     	<% if @item.image_url.nil? %>
-                    		<%= image_tag @item.item_image.url(:medium) %>
+                    		<%= image_tag @item.item_image.url(:show), class: "img-responsive" %>
                     	<% else %>
                        	 <%= image_tag @item.image_url, class: "img-responsive", alt: 'photo de chat' %>
                       <% end %>
