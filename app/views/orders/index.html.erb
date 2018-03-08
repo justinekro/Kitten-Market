@@ -14,45 +14,43 @@
 
 <div class="space-60"></div>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4 col-sm-offset-8">
-            <form class="search-form">
-                <input type="text" class="form-control" placeholder="Search Order">
-                <i class="fa fa-search"></i>
-            </form>
-        </div>
-    </div>
-  	<% @orders.each do |order| %>
-  	<h5>Date de la commande <%= order.created_at.strftime("%d-%m-%Y") %></h5>
+	<% @orders.reverse.each do |order| %>
+	<h5> Commande N° <%= order.id %> </h5>
+	<h5> Utilisateur <%= order.user.id %>
+		Email: <%= order.user.email%>
+		Date de la commande <%= order.created_at.strftime("%d-%m-%Y") %></h5>
 
-    <div class="table-responsive table-order-history">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Nom du produit</th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <% order.products.each do |product| %>
-                <% if product.quantity > 0 %>
+  <div class="table-responsive table-order-history">
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th></th>
+                  <th>Nom du produit</th>
+                  <th>Prix unitaire</th>
+                  <th>Quantité</th>
+                  <th>Montant total</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+              <% order.products.each do |product| %>
+              <% if product.quantity > 0 %>
 
-                    <td valign="middle">
-                        <%= image_tag product.item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
-                    </td>
-                    <td valign="middle"><%=product.item.title %></td>
-                    <td valign="middle"><%=product.item.price/100 %>€</td>
-                    <td valign="middle"><%= product.quantity %></td>
-                </tr>
-                <% end %>
-                <% end %>
-            </tbody>
-        </table>
-        
-    </div>
-    <% end %>
+                  <td valign="middle">
+                      <%= image_tag product.item.image_url, class: "img-responsive", alt: 'photo de chat', width: "80"%>
+                  </td>
+                  <td valign="middle"><%=product.item.title %></td>
+                  <td valign="middle"><%=product.item.price/100 %>€</td>
+                  <td valign="middle"><%= product.quantity %></td>
+                  <td valign="middle"><%= product.quantity*product.item.price/100 %>
+                  </td>
+              </tr>
+              <% end %>
+              <% end %>
+          </tbody>
+      </table>
+  </div>
+
+  <% end %>
 </div>
 		<!--Order history end-->
