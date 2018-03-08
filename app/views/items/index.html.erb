@@ -38,7 +38,11 @@
         <div class="col-sm-4 ">
             <div class="item_holder">
             	<a href="/items/<%=item.id%>">
-                <%= image_tag item.image_url, :class => "img-responsive" %>
+				<% if item.image_url.nil? %>
+                    <%= image_tag item.item_image.url(:medium) %>
+                    <% else %>
+                    <%= image_tag item.image_url, class: "img-responsive", alt: 'photo de chat' %>
+                     <% end %>
                 </a>
                 <div class="title">
                     <h5><%= item.title%></h5>
