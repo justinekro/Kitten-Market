@@ -39,7 +39,7 @@
             <div class="item_holder">
             	<a href="/items/<%=item.id%>">
 				<% if item.image_url.nil? %>
-                    <%= image_tag item.item_image.url(:index), class: "img-responsive" %>
+                    <%= image_tag item.item_image.url(:medium), class: "img-responsive" %>
                     <% else %>
                     <%= image_tag item.image_url, class: "img-responsive", alt: 'photo de chat' %>
                      <% end %>

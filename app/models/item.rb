@@ -7,8 +7,7 @@ class Item < ApplicationRecord
 	  has_attached_file :item_image, styles: {
     thumb: '100x100>',
     square: '200x200#',
-    show: '336x222>',
-    index: '223x129>',
+    medium: '336x222>',
   
   }
 
