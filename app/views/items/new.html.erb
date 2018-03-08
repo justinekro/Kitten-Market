@@ -10,6 +10,18 @@
       <div class="col-md-8">
           <div class="sky-form-login">
               <%= form_tag (items_path), multipart: true do %>
+              <% if @item.errors.any? %>
+              <div id="error_explanation">
+                <h2>
+                  <%= pluralize(@item.errors.count, "error") %> prohibited
+                  this user from being saved:
+                </h2>
+                  <% @item.errors.full_messages.each do |msg| %>
+                    <p><%= msg %></p>
+                  <% end %>
+              </div>
+            <% end %>
+
 
                   <div class="row">
                       <div class="field input">

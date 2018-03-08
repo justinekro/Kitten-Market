@@ -12,6 +12,8 @@
 		<h3>Ensemble des commandes des utilisateur</h3>
 	</div>
 
+<% if current_user && current_user.admin? %>  
+
 <div class="space-60"></div>
 <div class="container">
 	<% @orders.reverse.each do |order| %>
@@ -50,7 +52,13 @@
           </tbody>
       </table>
   </div>
-
   <% end %>
 </div>
+<% else %>  
+<div class="space-40"></div>
+
+<p> Vous devez être admin pour afficher l'ensemble des commandes passées </p>
+
+<% end %>
+
 		<!--Order history end-->

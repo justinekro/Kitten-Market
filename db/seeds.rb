@@ -22,9 +22,9 @@ Item.create(title:"Amour", description: "Un amour de chat", price:"500", image_u
 Item.create(title:"Félix", description: "Félix le chat", price:"700", image_url:"kitten_13.jpg")
 
 
-User.create(firstname:"Loulou", email:"loulou@gmail.com", password:"coucou")
-User.create(firstname:"Justikro", email:"justikro@gmail.com", password:"coucou")
-User.create(firstname:"Samba", email:"samba@gmail.com", password:"coucou")
-User.create(firstname:"Fabiche", email:"sylvain@gmail.com", password:"coucou")
-User.create(firstname:"Nicoco", email:"nico@gmail.com", password:"coucou")
-User.create(firstname:"Admin", email:"admin@gmail.com", password:"coucou", admin: true)
+User.create(firstname:"Loulou", name:"test", email:"loulou@gmail.com", password:"coucou")
+User.create(firstname:"Justikro",name:"test", email:"justikro@gmail.com", password:"coucou")
+User.create(firstname:"Samba", name:"test",email:"samba@gmail.com", password:"coucou")
+User.create(firstname:"Fabiche",name:"test", email:"sylvain@gmail.com", password:"coucou")
+User.create(firstname:"Nicoco", name:"test",email:"nico@gmail.com", password:"coucou")
+User.create(firstname:"Admin", name:"test",email:"admin@gmail.com", password:"coucou", admin: true)

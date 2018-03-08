@@ -5,6 +5,8 @@ class CartsController < ApplicationController
     current_user.cart.products.each do |product|
       @total += product.item.price.to_i * product.quantity
     end 
+    @total
+
   end
 
   def add_to_cart

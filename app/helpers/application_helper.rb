@@ -1,10 +1,10 @@
 module ApplicationHelper
 
 	def total_quantity
-		@total = 0
+		@total_quant = 0
 		current_user.cart.products.each do |product|
-      @total += product.quantity.to_s.to_d
+      @total_quant += product.quantity.to_s.to_d
     end 
-    @total
+    @total_quant
   end
 end

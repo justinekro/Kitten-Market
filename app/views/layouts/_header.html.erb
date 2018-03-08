@@ -74,19 +74,15 @@
                                     </div><!--Description-->
 
                                     <div class="buttons">
-                                        <!--  MODIFIER LE PATH Pour mettre le chemin vers l'edition de l'objet du panier et suppression de l'objet du panier -->
-                                        <%= link_to content_tag(:i, nil, class: 'fas fa-edit'), root_path %>
                                         <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), remove_from_cart_path(product.item.id) %>
                                     </div>
-                                    <%end%>
                                 </div><!--cart item-->
+                                <%end%>
                                 <% end %>
                             </div><!--cart-items-->
-
                         </div><!--cart dropdown end-->
                     </li>
                     <% end %>
-
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>
