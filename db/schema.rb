@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180307155437) do
     t.string "item_image_content_type"
     t.integer "item_image_file_size"
     t.datetime "item_image_updated_at"
-    t.integer "quantity", default: 0
+    t.integer "quantity"
   end
 
   create_table "items_orders", id: false, force: :cascade do |t|
