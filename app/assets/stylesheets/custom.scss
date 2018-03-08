@@ -39,7 +39,7 @@
 		display: block;
 		opacity: 1;
 		transition: 1s;
-		min-width: 260px;
+		min-width: 320px;
 	}
 }
 
@@ -86,9 +86,13 @@
 	width: 67%;
 	border-radius: unset;
 }
+#user_remember_me {
+    width: inherit;
+}
 
 /* ---------- Design alerts ----------*/
 
 .alert-notice {
     background-color: #1ab394;
+		color: white;
 }
