@@ -58,7 +58,7 @@
                                                           <li style="padding: 10px 15px;">Bonjour <%= current_user.firstname %>
                                                           </li>
                                                           <hr>
-                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-user-circle') + "Voir mon compte et mes commandes", user_profile_path %>
+                                                          <li><%= link_to content_tag(:i, nil, class: 'fas fa-user-circle') + "Voir mon compte et mes commandes", user_profile_path(current_user.id) %>
                                                           </li>
                                                           <li><%= link_to content_tag(:i, nil, class: 'fas fa-cogs') + "Modifier mon compte", edit_user_registration_path %>
                                                           </li>
@@ -87,7 +87,7 @@
                         <div class="dropdown-menu shopping-cart">
 
                             <div class="cart-header">
-                                Votre panier contient <%= total_quantity %> elements :
+                                Votre panier contient <%= total_quantity.to_i %> elements :
                             </div><!--end of cart-header-->
 
                             <div class="cart-items content-scroll">
