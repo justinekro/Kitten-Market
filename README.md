@@ -1,3 +1,5 @@
+![Notre logo](https://github.com/justinekro/thp-ecommerce/blob/master/app/assets/images/cat_logo.png "Notre logo")
+
 # Bienvenue sur le site du premier pureplayer de vente de photos de chatons
 
 Made by @lsrck, @nicohc, @sam28, @Sylvain971 et @justinekro, with ❤️
@@ -16,17 +18,14 @@ Installations réussies de MailJet et de l'Action Mailer. Utilisez votre adresse
 * à la création du profil
 * au moment du checkout
 
-![Notre CA au premier jour de lancement](https://github.com/justinekro/thp-ecommerce/blob/master/app/assets/images/readme/mailjet.png "Si c'est pas un mail de BG")
-
-
+![si c'est pas un mail de BG](https://github.com/justinekro/thp-ecommerce/blob/master/app/assets/images/readme/mailjet.png "Si c'est pas un mail de BG")
 
 
 ### Le profil admin
 
-Il permet d'ajouter et éditer des chatons. L'administrateur à également accès a l'historique des commandes de l'ensemble des utilisateurs. Et puis merde, il peut aussi commander des photos de chatons !
+Il permet d'ajouter et éditer des chatons. L'administrateur à également accès a l'historique des commandes de l'ensemble des utilisateurs. Et puis merde, il peut aussi commander des photos de chatons ! 
 
-> email : admin@gmail.com 
-> mdp : coucou
+> email : admin@gmail.com, mdp : coucou 
 
 
 ### L'ajout de photos
