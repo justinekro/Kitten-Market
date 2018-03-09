@@ -16,6 +16,10 @@ Installations réussies de MailJet et de l'Action Mailer. Utilisez votre adresse
 * à la création du profil
 * au moment du checkout
 
+![Notre CA au premier jour de lancement](https://github.com/justinekro/thp-ecommerce/blob/master/app/assets/images/readme/mailjet.png "Si c'est pas un mail de BG")
+
+
+
 
 ### Le profil admin
 
@@ -38,7 +42,7 @@ PS : Soyez gentils avec le pauvre Louis, limitez la quantité de photos uploaded
 Installation de la gem Stripe pour effectuer les paiements. N'hésitez pas à commander nos plus belles photos de chatons ! 
 Déjà un gros CA dégagé grâce à ces petites bestioles
 
-![Notre CA au premier jour de lancement](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Notre CA au premier jour de lancement")
+![Notre CA au premier jour de lancement](https://github.com/justinekro/thp-ecommerce/blob/master/app/assets/images/readme/stripe.png "Notre CA au premier jour de lancement")
 
 ---
 
