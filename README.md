@@ -3,6 +3,7 @@
 # Bienvenue sur le site du premier pureplayer de vente de photos de chatons
 
 Made by @lsrck, @nicohc, @sam28, @Sylvain971 et @justinekro, with ❤️
+Pour voir l'app en live et craquer pour une petite boule de poils... [par ici](https://kitten-market.herokuapp.com/)
 
 ## Keskon trouve sur Kitten Market ?
 
